@@ -55,9 +55,13 @@ app.use((err, req, res, next) => {
 });
 
 // Start Server
-app.listen(PORT, () => {
-  console.log(`===================================================`);
-  console.log(`🚀 BSEMetals Copper pricing engine active on port ${PORT}`);
-  console.log(`📊 Mode: ${(process.env.FIREBASE_PROJECT_ID && process.env.FIREBASE_CLIENT_EMAIL) ? 'Production (Firebase Real Auth)' : 'Developer Mock Mode'}`);
-  console.log(`===================================================`);
-});
+if (process.env.VERCEL !== '1') {
+  app.listen(PORT, () => {
+    console.log(`===================================================`);
+    console.log(`🚀 BSEMetals Copper pricing engine active on port ${PORT}`);
+    console.log(`📊 Mode: ${(process.env.FIREBASE_PROJECT_ID && process.env.FIREBASE_CLIENT_EMAIL) ? 'Production (Firebase Real Auth)' : 'Developer Mock Mode'}`);
+    console.log(`===================================================`);
+  });
+}
+
+export default app;
