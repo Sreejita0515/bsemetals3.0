@@ -142,30 +142,16 @@ export default function Login({ initialType = 'customer' }) {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">Company Name *</label>
-                  <input
-                    type="text"
-                    required
-                    value={companyName}
-                    onChange={(e) => setCompanyName(e.target.value)}
-                    placeholder="Alpha Electricals"
-                    className="w-full bg-slate-950 border border-slate-800 hover:border-slate-700 focus:border-copper-500 rounded-xl py-3 px-4 text-sm text-slate-100 placeholder:text-slate-600 outline-none transition duration-200"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">GSTIN *</label>
-                  <input
-                    type="text"
-                    required
-                    value={gstin}
-                    onChange={(e) => setGstin(e.target.value.toUpperCase())}
-                    placeholder="22AAAAA0000A1Z5"
-                    maxLength={15}
-                    className="w-full bg-slate-950 border border-slate-800 hover:border-slate-700 focus:border-copper-500 rounded-xl py-3 px-4 text-sm text-slate-100 placeholder:text-slate-600 outline-none transition duration-200"
-                  />
-                </div>
+              <div>
+                <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">Company Name *</label>
+                <input
+                  type="text"
+                  required
+                  value={companyName}
+                  onChange={(e) => setCompanyName(e.target.value)}
+                  placeholder="Alpha Electricals"
+                  className="w-full bg-slate-950 border border-slate-800 hover:border-slate-700 focus:border-copper-500 rounded-xl py-3 px-4 text-sm text-slate-100 placeholder:text-slate-600 outline-none transition duration-200"
+                />
               </div>
 
               <div>

@@ -16,8 +16,7 @@ export default function Profile() {
     name: '',
     phone: '',
     companyName: '',
-    companyAddress: '',
-    gstin: ''
+    companyAddress: ''
   });
   const [saving, setSaving] = useState(false);
 
@@ -32,8 +31,7 @@ export default function Profile() {
             name: profileData.name || user?.name || '',
             phone: profileData.phone || '',
             companyName: profileData.companyName || '',
-            companyAddress: profileData.companyAddress || '',
-            gstin: profileData.gstin || ''
+            companyAddress: profileData.companyAddress || ''
           });
         }
       } catch (err) {
@@ -87,7 +85,6 @@ export default function Profile() {
           phone: editForm.phone,
           companyName: editForm.companyName,
           companyAddress: editForm.companyAddress,
-          gstin: editForm.gstin,
           role: profile?.role || user?.role || 'customer'
         })
       });
@@ -148,25 +145,14 @@ export default function Profile() {
                 className="w-full bg-slate-950 border border-slate-800 hover:border-slate-700 focus:border-amber-500 rounded-xl py-2 px-4 text-sm text-slate-100 placeholder:text-slate-600 outline-none transition"
               />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-1.5">Phone Number</label>
-                <input
-                  type="tel"
-                  value={editForm.phone}
-                  onChange={(e) => setEditForm({...editForm, phone: e.target.value})}
-                  className="w-full bg-slate-950 border border-slate-800 hover:border-slate-700 focus:border-amber-500 rounded-xl py-2 px-4 text-sm text-slate-100 outline-none transition"
-                />
-              </div>
-              <div>
-                <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-1.5">GSTIN</label>
-                <input
-                  type="text"
-                  value={editForm.gstin}
-                  onChange={(e) => setEditForm({...editForm, gstin: e.target.value})}
-                  className="w-full bg-slate-950 border border-slate-800 hover:border-slate-700 focus:border-amber-500 rounded-xl py-2 px-4 text-sm text-slate-100 outline-none transition uppercase"
-                />
-              </div>
+            <div>
+              <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-1.5">Phone Number</label>
+              <input
+                type="tel"
+                value={editForm.phone}
+                onChange={(e) => setEditForm({...editForm, phone: e.target.value})}
+                className="w-full bg-slate-950 border border-slate-800 hover:border-slate-700 focus:border-amber-500 rounded-xl py-2 px-4 text-sm text-slate-100 outline-none transition"
+              />
             </div>
             <div>
               <label className="block text-xs font-semibold text-slate-400 uppercase tracking-widest mb-1.5">Company Name</label>
@@ -211,7 +197,6 @@ export default function Profile() {
             <InfoRow icon={Phone} label="Phone Number" value={profile?.phone} />
             <InfoRow icon={Building2} label="Company Name" value={profile?.companyName} />
             <InfoRow icon={MapPin} label="Company Address" value={profile?.companyAddress} />
-            <InfoRow icon={FileText} label="GSTIN" value={profile?.gstin} />
           </div>
         )}
       </div>
@@ -235,7 +220,6 @@ export default function Profile() {
               <InfoRow icon={Phone} label="Phone Number" value={adminInfo.phone} />
               <InfoRow icon={Building2} label="Company Name" value={adminInfo.companyName} />
               <InfoRow icon={MapPin} label="Company Address" value={adminInfo.companyAddress} />
-              <InfoRow icon={BadgeCheck} label="GSTIN" value={adminInfo.gstin} />
             </>
           ) : (
             <div className="py-8 text-center text-slate-500 text-sm">

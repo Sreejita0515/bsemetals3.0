@@ -198,8 +198,7 @@ export function AuthProvider({ children }) {
             role: role,  // Store role in DB
             phone: profileData.phone || '',
             companyName: profileData.companyName || '',
-            companyAddress: profileData.companyAddress || '',
-            gstin: profileData.gstin || ''
+            companyAddress: profileData.companyAddress || ''
           })
         });
 
