@@ -79,7 +79,6 @@ export default function AdminProfile() {
           <InfoRow icon={Phone} label="Phone Number" value={profile?.phone} />
           <InfoRow icon={Building2} label="Company Name" value={profile?.companyName} />
           <InfoRow icon={MapPin} label="Company Address" value={profile?.companyAddress} />
-          <InfoRow icon={FileText} label="GSTIN" value={profile?.gstin} />
         </div>
       </div>
 

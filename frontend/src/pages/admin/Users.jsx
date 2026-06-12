@@ -191,36 +191,20 @@ export default function Users() {
               />
             </div>
 
-            {/* Company Name + GSTIN */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className={labelClass}>
-                  <span className="flex items-center gap-1.5"><Building2 className="w-3 h-3" /> Company Name *</span>
-                </label>
-                <input
-                  required
-                  type="text"
-                  name="companyName"
-                  placeholder="e.g. Alpha Electricals Pvt Ltd"
-                  value={formData.companyName}
-                  onChange={handleChange}
-                  className={inputClass}
-                />
-              </div>
-              <div>
-                <label className={labelClass}>GSTIN *</label>
-                <input
-                  required
-                  type="text"
-                  name="gstin"
-                  placeholder="e.g. 22AAAAA0000A1Z5"
-                  value={formData.gstin}
-                  onChange={handleChange}
-                  className={inputClass}
-                  maxLength={15}
-                  style={{ textTransform: 'uppercase' }}
-                />
-              </div>
+            {/* Company Name */}
+            <div>
+              <label className={labelClass}>
+                <span className="flex items-center gap-1.5"><Building2 className="w-3 h-3" /> Company Name *</span>
+              </label>
+              <input
+                required
+                type="text"
+                name="companyName"
+                placeholder="e.g. Alpha Electricals Pvt Ltd"
+                value={formData.companyName}
+                onChange={handleChange}
+                className={inputClass}
+              />
             </div>
 
             {/* Admin Secret Key (only for admin role) */}
@@ -273,7 +257,6 @@ export default function Users() {
                 <th className="py-3.5 px-6 text-xs font-semibold text-slate-400 uppercase tracking-wider">Name</th>
                 <th className="py-3.5 px-6 text-xs font-semibold text-slate-400 uppercase tracking-wider">Email</th>
                 <th className="py-3.5 px-6 text-xs font-semibold text-slate-400 uppercase tracking-wider">Company</th>
-                <th className="py-3.5 px-6 text-xs font-semibold text-slate-400 uppercase tracking-wider">GSTIN</th>
                 <th className="py-3.5 px-6 text-xs font-semibold text-slate-400 uppercase tracking-wider">Joined</th>
               </tr>
             </thead>
@@ -301,9 +284,6 @@ export default function Users() {
                           {u.companyName}
                         </span>
                       ) : '-'}
-                    </td>
-                    <td className="py-4 px-6 text-sm text-slate-400 font-mono">
-                      {u.gstin || '-'}
                     </td>
                     <td className="py-4 px-6 text-sm text-slate-500">
                       {new Date(u.createdAt).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}

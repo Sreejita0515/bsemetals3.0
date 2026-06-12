@@ -27,8 +27,8 @@ router.post('/register', authenticateToken, requireRole('admin'), async (req, re
     return res.status(400).json({ error: 'Name, email, password, and role are required.' });
   }
 
-  if (!companyName || !gstin) {
-    return res.status(400).json({ error: 'Company name and GSTIN are required.' });
+  if (!companyName) {
+    return res.status(400).json({ error: 'Company name is required.' });
   }
 
   // Validate admin secret key if registering an admin
@@ -64,7 +64,7 @@ router.post('/register', authenticateToken, requireRole('admin'), async (req, re
 
   try {
     const profile = await prisma.userProfile.create({
-      data: { uid, name, email, role, phone: phone || null, companyName, companyAddress: companyAddress || null, gstin }
+      data: { uid, name, email, role, phone: phone || null, companyName, companyAddress: companyAddress || null, gstin: gstin || null }
     });
     res.status(201).json({ message: 'User created successfully', user: profile });
   } catch (error) {

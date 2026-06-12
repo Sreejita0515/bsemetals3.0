@@ -276,10 +276,6 @@ export default function Quotes() {
 
                     <div className="bg-slate-950 p-4 border border-slate-900 rounded-xl space-y-2">
                       <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest block">Corporate Profile</span>
-                      <div className="flex items-start gap-2 text-xs font-semibold text-slate-200">
-                        <span className="text-copper-500 font-bold mt-0.5">GSTIN:</span>
-                        {quote.userProfile?.gstin || <span className="text-slate-600 italic">Not Provided</span>}
-                      </div>
                       <div className="flex items-start gap-2 text-xs text-slate-400 leading-relaxed">
                         <span className="text-slate-500 font-bold mt-0.5">ADDR:</span>
                         {quote.userProfile?.companyAddress || <span className="text-slate-600 italic">Not Provided</span>}
