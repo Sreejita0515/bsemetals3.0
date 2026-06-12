@@ -260,16 +260,6 @@ export default function Login({ initialType = 'customer' }) {
           </button>
         </div>
 
-        {/* Dev Mode toggle footer */}
-        <div className="mt-6 text-center">
-          <button
-            onClick={toggleDevMode}
-            className="text-[10px] text-slate-500 hover:text-slate-400 underline font-semibold transition"
-          >
-            {isMock ? 'Connect to Production Firebase SDK' : 'Enable Developer Mock Offline Mode'}
-          </button>
-        </div>
-
       </div>
     </div>
   );
