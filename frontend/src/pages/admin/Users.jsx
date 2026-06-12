@@ -1,7 +1,7 @@
 // frontend/src/pages/admin/Users.jsx
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { Users as UsersIcon, UserPlus, Building2, Loader2, X, Shield, KeyRound, Mail, Lock, User, BadgeCheck } from 'lucide-react';
+import { Users as UsersIcon, UserPlus, Building2, Loader2, X, Shield, KeyRound, Mail, Lock, User, BadgeCheck, Eye, EyeOff } from 'lucide-react';
 
 export default function Users() {
   const { apiFetch } = useAuth();
@@ -22,6 +22,7 @@ export default function Users() {
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
   const [submitSuccess, setSubmitSuccess] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const fetchUsers = async () => {
     try {
@@ -180,15 +181,24 @@ export default function Users() {
               <label className={labelClass}>
                 <span className="flex items-center gap-1.5"><Lock className="w-3 h-3" /> Password *</span>
               </label>
-              <input
-                required
-                type="password"
-                name="password"
-                placeholder="Minimum 6 characters"
-                value={formData.password}
-                onChange={handleChange}
-                className={inputClass}
-              />
+              <div className="relative">
+                <input
+                  required
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  placeholder="Minimum 6 characters"
+                  value={formData.password}
+                  onChange={handleChange}
+                  className={inputClass + " pr-10"}
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 focus:outline-none transition cursor-pointer"
+                >
+                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
+              </div>
             </div>
 
             {/* Company Name */}

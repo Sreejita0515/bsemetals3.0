@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Lock, Mail, Loader2, ShieldCheck, UserCheck, Layers2, ArrowRight } from 'lucide-react';
+import { Lock, Mail, Loader2, ShieldCheck, UserCheck, Layers2, ArrowRight, Eye, EyeOff } from 'lucide-react';
 
 export default function Login({ initialType = 'customer' }) {
   const { login, signup, isMock, toggleDevMode } = useAuth();
@@ -19,6 +19,7 @@ export default function Login({ initialType = 'customer' }) {
   const [gstin, setGstin] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -198,13 +199,20 @@ export default function Login({ initialType = 'customer' }) {
             <div className="relative">
               <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-slate-500" />
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full bg-slate-950 border border-slate-800 hover:border-slate-700 focus:border-copper-500 rounded-xl py-3 pl-12 pr-4 text-sm text-slate-100 placeholder:text-slate-600 outline-none transition duration-200"
+                className="w-full bg-slate-950 border border-slate-800 hover:border-slate-700 focus:border-copper-500 rounded-xl py-3 pl-12 pr-12 text-sm text-slate-100 placeholder:text-slate-600 outline-none transition duration-200"
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 focus:outline-none transition cursor-pointer"
+              >
+                {showPassword ? <EyeOff className="w-4.5 h-4.5" /> : <Eye className="w-4.5 h-4.5" />}
+              </button>
             </div>
           </div>
 
